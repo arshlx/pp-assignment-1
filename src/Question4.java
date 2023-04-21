@@ -6,7 +6,7 @@ class Question4 {
 
     private static final PrintStream syso = System.out;
     private static final Scanner scan = new Scanner(System.in);
-    private static final int MIN = 11, MAX = 77, EXIT_CODE = -1;
+    private static final int MIN = 11, MAX = 77, EXIT_CODE = 0;
     private static int generatedNum, guessedNum;
     private static int numCorrect = 0;
     private static boolean exit = false;
@@ -23,12 +23,11 @@ class Question4 {
     }
 
     public static void generateRandomNum() {
+        syso.println();
         generatedNum = (int) (Math.random() * MAX) + MIN;
-        syso.println("Generated number: " + generatedNum);
-        syso.print("\nGuess what is the integer number between 11 (inclusive) and 88 (exclusive): ");
+        syso.print("Enter your guess [" + generatedNum + "] (0 to quit): ");
         try {
             guessedNum = scan.nextInt();
-            syso.println("entered num:" + guessedNum);
             result();
         } catch (InputMismatchException e) {
             scan.nextLine();
@@ -38,7 +37,7 @@ class Question4 {
 
     public static void result() {
         if (guessedNum == generatedNum) {
-            syso.println("You guessed correctly!\n Total number of points (correct guesses): " + (++numCorrect));
+            syso.print("You guessed correctly!\nTotal number of points (correct guesses): " + (++numCorrect));
 
         } else if (guessedNum == EXIT_CODE) {
             exit = true;
