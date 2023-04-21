@@ -6,8 +6,7 @@ class Question4 {
 
     private static final PrintStream syso = System.out;
     private static final Scanner scan = new Scanner(System.in);
-    private static final int MIN = 11;
-    private static final int MAX = 77;
+    private static final int MIN = 11, MAX = 77, EXIT_CODE = -1;
     private static int generatedNum, guessedNum;
     private static int numCorrect = 0;
     private static boolean exit = false;
@@ -17,7 +16,7 @@ class Question4 {
                 ********Welcome to HiLo********
                 For this game, I will choose a number 11 (inclusive) and 88 (exclusive) at random, and you have to guess it!
                 If you guess it correctly, you get a point!
-                You can enter guessed number as 0 to exit the game.
+                You can enter guessed number as -1 to exit the game.
                 If you guess incorrectly, you get to go again. So, let's start?""");
 
         while (!exit) generateRandomNum();
@@ -41,12 +40,12 @@ class Question4 {
         if (guessedNum == generatedNum) {
             syso.println("You guessed correctly!\n Total number of points (correct guesses): " + (++numCorrect));
 
+        } else if (guessedNum == EXIT_CODE) {
+            exit = true;
         } else if (guessedNum < generatedNum) {
             syso.println("Your guess was too LOW.");
         } else if (guessedNum > generatedNum) {
             syso.println("Your guess was too HIGH.");
-        } else if (guessedNum == 0) {
-            exit = true;
         }
         if (!exit) goAgain();
 
