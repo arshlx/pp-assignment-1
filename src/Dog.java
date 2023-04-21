@@ -1,9 +1,9 @@
 public class Dog {
-    String dogName;
-    int dogAge;
-    int personYears;
+    private String dogName;
+    private int dogAge;
+    private int personYears;
 
-    Dog(String name, int age) {
+    public Dog(String name, int age) {
         dogName = name;
         dogAge = age;
         setPersonYears();
@@ -26,19 +26,21 @@ public class Dog {
         setPersonYears();
     }
 
-    private void setPersonYears() {
+    private  void setPersonYears() {
         personYears = dogAge * 7;
     }
 
-    public String toString() {
-        return "Dog{" +
-                "\ndogName='" + dogName + '\'' +
-                ", \ndogAge=" + dogAge +
-                ", \nhumanYears=" + personYears +
-                "\n}";
+    private int getPersonYears() {
+        return personYears;
     }
 
-    void showPersonYears() {
+    public String toString() {
+        return "\ndogName: " + getDogName() +
+                "\ndogAge: " + getDogAge() +
+                "\nhumanYears=" + getPersonYears();
+    }
+
+    public void showPersonYears() {
         System.out.print("\n" + dogName + "'s age in person years is: " + personYears);
     }
 }

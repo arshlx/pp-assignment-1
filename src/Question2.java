@@ -26,7 +26,7 @@ public class Question2 {
     }
 
     private static void enterCharacterCount() {
-        syso.print("\nPlease enter the number of words in the document: ");
+        syso.print("\nPlease enter the number of characters in the document: ");
         //Error handling for invalid input
         try {
             numCharacters = scan.nextInt();

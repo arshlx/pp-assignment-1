@@ -16,7 +16,7 @@ class Question4 {
                 ********Welcome to HiLo********
                 For this game, I will choose a number 11 (inclusive) and 88 (exclusive) at random, and you have to guess it!
                 If you guess it correctly, you get a point!
-                You can enter guessed number as -1 to exit the game.
+                You can enter guessed number as 0 to exit the game.
                 If you guess incorrectly, you get to go again. So, let's start?""");
 
         while (!exit) generateRandomNum();

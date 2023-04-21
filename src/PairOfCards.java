@@ -7,24 +7,44 @@ public class PairOfCards {
     public static Card card2 = new Card();
 
     public static void main(String args[]) {
+        //instantiating cardPair
         PairOfCards cardPair = new PairOfCards();
-        syso.println("Current card 1 value is: " + getCard1Value());
-        syso.println("Current card 2 value is: " + getCard2Value());
-        syso.println("Current sum of both card values is: " + sumOfCards());
+
+        //printing cardPair values
+        syso.println("Current card 1 value is: " + cardPair.getCard1Value());
+        syso.println("Current card 2 value is: " + cardPair.getCard2Value());
+        syso.println("Current sum of both card values is: " + cardPair.sumOfCards());
+
+        //randomizing card 1
         syso.println("Randomizing card 1.");
-        randomizeCard1();
-        syso.println("New card 1 value is: " + getCard1Value());
+        cardPair.randomizeCard1();
+
+        //printing new card 1 value
+        syso.println("New card 1 value is: " + cardPair.getCard1Value());
+
+
+        //randomizing card 2
         syso.println("Randomizing card 2.");
-        randomizeCard2();
-        syso.println("New card 2 value is: " + getCard2Value());
+        cardPair.randomizeCard2();
+
+        //printing new card 2 value
+        syso.println("New card 2 value is: " + cardPair.getCard2Value());
+
+        //randomizing both cards together
         syso.println("Randomizing both cards together");
-        randomizeBothCards();
-        syso.println("New card 1 value is: " + getCard1Value());
-        syso.println("New card 2 value is: " + getCard2Value());
-        syso.println("New sum of both card values is: " + sumOfCards());
+        cardPair.randomizeBothCards();
+
+        //printing values for both cards
+        syso.println("New card 1 value is: " + cardPair.getCard1Value());
+        syso.println("New card 2 value is: " + cardPair.getCard2Value());
+        syso.println("New sum of both card values is: " + cardPair.sumOfCards());
     }
 
-    public static int getCard1Value() {
+    private static int randomNumber() {
+        return (int) (Math.random() * MAX_VALUE) + NIN_VALUE;
+    }
+
+    public int getCard1Value() {
         return card1.cardValue;
     }
 
@@ -32,7 +52,7 @@ public class PairOfCards {
         card1.setCardValue(newValue);
     }
 
-    public static int getCard2Value() {
+    public int getCard2Value() {
         return card2.cardValue;
     }
 
@@ -40,24 +60,20 @@ public class PairOfCards {
         card2.setCardValue(newValue);
     }
 
-    public static void randomizeCard1() {
+    public void randomizeCard1() {
         setCard1Value(randomNumber());
     }
 
-    public static void randomizeCard2() {
+    public void randomizeCard2() {
         setCard2Value(randomNumber());
     }
 
-    public static void randomizeBothCards() {
+    public void randomizeBothCards() {
         randomizeCard1();
         randomizeCard2();
     }
 
-    public static int sumOfCards() {
+    public int sumOfCards() {
         return card1.getCardValue() + card2.getCardValue();
-    }
-
-    private static int randomNumber() {
-        return (int) (Math.random() * MAX_VALUE) + NIN_VALUE;
     }
 }
